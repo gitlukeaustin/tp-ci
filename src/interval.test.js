@@ -1,7 +1,7 @@
 const Interval = require('./interval');
 
 /**
- *      Test overlaps
+ *      Test overlaps...done
  */
 test('test interval 2-5 overlaps with interval 4-6', () => {
     expect((new Interval(2,5)).overlaps(new Interval(4,7))).toBe(true);
@@ -46,7 +46,7 @@ test('test interval 2-8 overlaps with interval 7-8', () => {
 );
 
 /**
- *      Test includes
+ *      Test includes... done
  */
 
 test('test 0-8 includes 2-4', () => {
@@ -83,3 +83,104 @@ test('test 10-20 includes 10-20', () => {
     expect((new Interval(10,20)).includes(new Interval(10,20))).toBe(true);
  }
 );
+
+/**
+     * Retourne l'union de deux intervals
+     *
+     * Exemple 1 :
+     *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                              ▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval1.union(interval2) =>        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+     *
+     * Exemple 2 :
+     *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                                      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval1.union(interval2) =>        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+     *
+     * @param {Interval} interval
+     * @returns {Interval[]}
+     */
+
+/**
+ *  Test de l'union ... current work
+ */
+test('test that a union of 1-4 and 3-4 returns an array', () => {
+    expect((new Interval(1,4)).union(new Interval(3,4))).toBeInstanceOf(Array);
+ } 
+);
+
+test('test that a union of 3-4 and 1-4 returns an array', () => {
+    expect((new Interval(3,4)).union(new Interval(1,4))).toBeInstanceOf(Array);
+ } 
+);
+
+test('test that a union of 1-4 and 3-4 returns an array of length 1', () => {
+    expect(
+        ((new Interval(1,4)).union(new Interval(3,4))).length
+        ).toEqual(1);
+ } 
+);
+
+test('test that a union of 3-4 and 1-4 returns an array of length 1', () => {
+    expect(
+        ((new Interval(3,4)).union(new Interval(1,4))).length
+        ).toEqual(1);
+ } 
+);
+
+test('test that a union of 1-4 and 8-68 returns an array', () => {
+    expect((new Interval(1,4)).union(new Interval(8,68))).toBeInstanceOf(Array);
+ } 
+);
+
+test('test that a union of 8-68 and 1-4 returns an array', () => {
+    expect((new Interval(8,68)).union(new Interval(1,4))).toBeInstanceOf(Array);
+ } 
+);
+
+test('test that a union of 8-68 and 1-4 returns an array of length 2', () => {
+    expect((new Interval(8,68)).union(new Interval(1,4))).toBeInstanceOf(Array);
+ } 
+);
+
+test('test that the start value of the union of 1-6 and 3-9 is 1', () => {
+    expect((new Interval(1,6)).union(new Interval(3,9))[0].start).toEqual(1);
+ }
+);
+
+test('test that the end value of the union of 1-6 and 3-9 is 9', () => {
+    expect((new Interval(1,6)).union(new Interval(3,9))[0].end).toEqual(9);
+ }
+);
+
+test('test that the union of 1-6 and 8-9 contains the interval 8-9', () => {
+    expect((new Interval(1,6)).union(new Interval(8,9))).toContainEqual(new Interval(8,9));
+ }
+);
+
+/*
+* test interval function
+expect(n).toBeNull();
+    expect(n).toBeDefined();
+
+// expected value - 4 8 interval on connected intervals
+
+// expected value - null on seperated intervals
+
+// expected value - null on adjacent intervals
+interval.intersection(interval)
+
+/* test exclusion function
+
+
+*/
+// expect two Intervals
+
+// expect array type
+
+// expect two identical intervals to return empty array[]
+
+// 
+
+//interval.exclusion(interval)
+
