@@ -63,7 +63,12 @@ class Interval {
      * @returns {Interval[]}
      */
     union(interval) {
-
+            if(this.end >= interval.start && this.start < interval.end){
+                return [new Interval(this.start,interval.end)];
+            }
+            else{
+                return [this,interval];
+            }
     };
 
     /**
