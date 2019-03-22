@@ -102,7 +102,7 @@ test('test 10-20 includes 10-20', () => {
      */
 
 /**
- *  Test de l'union ... current work
+ *  Test de l'union ...done
  */
 test('test that a union of 1-4 and 3-4 returns an array', () => {
     expect((new Interval(1,4)).union(new Interval(3,4))).toBeInstanceOf(Array);
@@ -160,15 +160,69 @@ test('test that the union of 1-6 and 8-9 contains the interval 8-9', () => {
 
 /*
 * test interval function
-expect(n).toBeNull();
-    expect(n).toBeDefined();
+*/
+  /**
+     * Retourne l'intersection de deux intervals
+     *
+     * Exemple 1 :
+     *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                              ▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval1.intersection(interval2) =>                     ▒▒▒▒▒
+     *
+     * Exemple 2 :
+     *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                                      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval1.intersection(interval2) => <tableau vide>
+     *
+     * @param {Interval} interval
+     * @returns {Interval|null}
+     */
 
-// expected value - 4 8 interval on connected intervals
+test('test that the intersection of 1-6 and 4-9 equals the interval 4-6', () => {
+    expect((new Interval(1,6)).intersection(new Interval(4,9))).toEqual(new Interval(4,6));
+    }
+);
 
-// expected value - null on seperated intervals
+test('test that the intersection of 4-9 and 1-6 equals the interval 4-6', () => {
+    expect((new Interval(4,9)).intersection(new Interval(1,6))).toEqual(new Interval(4,6));
+    }
+);
 
-// expected value - null on adjacent intervals
-interval.intersection(interval)
+test('test that the intersection of 1-6 and 4-9 returns an Interval', () => {
+    expect((new Interval(1,6)).intersection(new Interval(4,9))).toBeInstanceOf(Interval);
+    }
+);
+
+test('test that the intersection of 4-9 and 1-6 to be an interval', () => {
+    expect((new Interval(4,9)).intersection(new Interval(1,6))).toBeInstanceOf(Interval);
+    }
+);
+
+test('test that the intersection of 1-6 and 8-9 is null', () => {
+    expect((new Interval(1,6)).intersection(new Interval(8,9))).toBe(null);
+    }
+);
+
+test('test that the intersection of 8-9 and 1-6 is null', () => {
+    expect((new Interval(8,9)).intersection(new Interval(1,6))).toBe(null);
+    }
+);
+
+test('test that the intersection of 8-9 and 1-12 is 8-9', () => {
+    expect((new Interval(8,9)).intersection(new Interval(1,12))).toEqual(new Interval(8,9));
+    }
+);
+
+test('test that the intersection of 1-12 and 8-9 is 8-9', () => {
+    expect((new Interval(1,12)).intersection(new Interval(8,9))).toEqual(new Interval(8,9));
+    }
+);
+
+test('test that the intersection of 1-7 and 8-9 is null', () => {
+    expect((new Interval(1,7)).intersection(new Interval(8,9))).toBe(null);
+    }
+);
+
 
 /* test exclusion function
 

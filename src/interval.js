@@ -88,7 +88,18 @@ class Interval {
      * @returns {Interval|null}
      */
     intersection(interval) {
-
+        var sorted = [this,interval].sort((a,b)=>a.start>b.start);
+        if(sorted[0].end<sorted[1].start){
+            return null;
+        }
+        else{
+            if(sorted[0].end > sorted[1].end){
+                return sorted[1];
+            }
+            else{
+                return new Interval(sorted[1].start,sorted[0].end);
+            }
+        }
     };
 
     /**
