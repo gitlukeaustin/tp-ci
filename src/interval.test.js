@@ -302,17 +302,17 @@ test('test that the exclusion of 1-6 and 8-9 contains the interval 8-9', () => {
 );
 
 test('test that the exclusion of 1-6 and 4-9 contains the interval 7-9', () => {
-    expect((new Interval(1,6)).exclusion(new Interval(8,9))).toContainEqual(new Interval(8,9));
+    expect((new Interval(1,6)).exclusion(new Interval(4,9))).toContainEqual(new Interval(7,9));
  }
 );
 
 test('test that the exclusion of 1-6 and 4-9 contains the interval 1-3', () => {
-    expect((new Interval(1,6)).exclusion(new Interval(8,9))).toContainEqual(new Interval(1,4));
+    expect((new Interval(1,6)).exclusion(new Interval(4,9))).toContainEqual(new Interval(1,3));
  }
 );
 
 test('test that the exclusion of 1-2 and 4-9 contains the interval 4-9', () => {
-    expect((new Interval(1,6)).exclusion(new Interval(8,9))).toContainEqual(new Interval(1,4));
+    expect((new Interval(1,2)).exclusion(new Interval(4,9))).toContainEqual(new Interval(4,9));
  }
 );
 
