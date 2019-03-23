@@ -226,15 +226,93 @@ test('test that the intersection of 1-7 and 8-9 is null', () => {
 
 /* test exclusion function
 
+    
+     * Retourne l'exclusion de deux intervals
+     *
+     * Exemple 1 :
+     *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                              ▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval1.exclusion(interval2) =>    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒     ▒▒▒▒▒▒▒▒
+     *
+     * Exemple 2 :
+     *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval2 =                                                      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *      interval1.exclusion(interval2) =>    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+     *
+     * @param {Interval} interval
+     * @returns {Interval[]}
+     
 
 */
-// expect two Intervals
+test('test that an exclusion of 8-68 and 1-4 returns an array', () => {
+    expect((new Interval(8,68)).exclusion(new Interval(1,4))).toBeInstanceOf(Array);
+ } 
+);
 
-// expect array type
+test('test that an exclusion of 8-68 and 1-4 returns an array of length 2', () => {
+    expect(((new Interval(8,68)).exclusion(new Interval(1,4))).length).toEqual(2);
+ } 
+);
 
-// expect two identical intervals to return empty array[]
+test('test that an exclusion of 1-4 and 3-4 returns an array', () => {
+    expect((new Interval(1,4)).exclusion(new Interval(3,4))).toBeInstanceOf(Array);
+ } 
+);
 
-// 
+test('test that an exclusion of 3-4 and 1-4 returns an array', () => {
+    expect((new Interval(3,4)).exclusion(new Interval(1,4))).toBeInstanceOf(Array);
+ } 
+);
 
-//interval.exclusion(interval)
+test('test that an exclusion of 1-4 and 3-4 returns an array of length 2', () => {
+    expect(
+        ((new Interval(1,4)).exclusion(new Interval(3,4))).length
+        ).toEqual(2);
+ } 
+);
+
+test('test that an exclusion of 3-4 and 1-4 returns an array of length 2', () => {
+    expect(
+        ((new Interval(3,4)).exclusion(new Interval(1,4))).length
+        ).toEqual(2);
+ } 
+);
+
+test('test that a exclusion of 1-4 and 8-68 returns an array', () => {
+    expect((new Interval(1,4)).exclusion(new Interval(8,68))).toBeInstanceOf(Array);
+ } 
+);
+
+test('test that a exclusion of 8-68 and 1-4 returns an array', () => {
+    expect((new Interval(8,68)).exclusion(new Interval(1,4))).toBeInstanceOf(Array);
+ } 
+);
+
+
+test('test that the start value of the exclusion of 1-6 and 3-9 is 1', () => {
+    expect((new Interval(1,6)).exclusion(new Interval(3,9))[0].start).toEqual(1);
+ }
+);
+
+
+
+test('test that the exclusion of 1-6 and 8-9 contains the interval 8-9', () => {
+    expect((new Interval(1,6)).exclusion(new Interval(8,9))).toContainEqual(new Interval(8,9));
+ }
+);
+
+test('test that the exclusion of 1-6 and 4-9 contains the interval 7-9', () => {
+    expect((new Interval(1,6)).exclusion(new Interval(4,9))).toContainEqual(new Interval(7,9));
+ }
+);
+
+test('test that the exclusion of 1-6 and 4-9 contains the interval 1-3', () => {
+    expect((new Interval(1,6)).exclusion(new Interval(4,9))).toContainEqual(new Interval(1,3));
+ }
+);
+
+test('test that the exclusion of 1-2 and 4-9 contains the interval 4-9', () => {
+    expect((new Interval(1,2)).exclusion(new Interval(4,9))).toContainEqual(new Interval(4,9));
+ }
+);
 

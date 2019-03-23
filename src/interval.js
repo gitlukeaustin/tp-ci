@@ -119,7 +119,16 @@ class Interval {
      * @returns {Interval[]}
      */
     exclusion(interval) {
-
+        var sorted = [this,interval].sort((a,b)=>{return a.start-b.start});
+        if(sorted[0].end < sorted[1].start){
+            return sorted;
+        }
+        else{
+            return [
+                new Interval(sorted[0].start,sorted[1].start-1),
+                new Interval(sorted[0].end+1,sorted[1].end),
+            ];
+        }
     };
 }
 
