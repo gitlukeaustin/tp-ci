@@ -123,6 +123,12 @@ class Interval {
         if(sorted[0].end < sorted[1].start){
             return sorted;
         }
+        else if(sorted[0].end > sorted[1].end){
+            return [
+                new Interval(sorted[0].start,sorted[1].start-1),
+                new Interval(sorted[1].end+1,sorted[0].end),
+            ];
+        }
         else{
             return [
                 new Interval(sorted[0].start,sorted[1].start-1),

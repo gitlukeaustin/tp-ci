@@ -316,3 +316,8 @@ test('test that the exclusion of 1-2 and 4-9 contains the interval 4-9', () => {
  }
 );
 
+test('test that the exclusion of 1-9 and 4-6 contains the interval 7-9', () => {
+    expect((new Interval(1,9)).exclusion(new Interval(4,6))).toContainEqual(new Interval(7,9));
+ }
+);
+
