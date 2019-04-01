@@ -8,10 +8,7 @@ test('test interval 2-5 overlaps with interval 4-6', () => {
  }
 );
 
-test('test interval 4-6 overlaps with interval 2-5', () => {
-    expect((new Interval(4,6)).overlaps(new Interval(2,5))).toBe(true);
- }
-);
+
 
 test('test interval 0-3 does not overlap with interval 12-16', () => {
     expect((new Interval(0,3)).overlaps(new Interval(12,16))).toBe(false);
@@ -320,4 +317,49 @@ test('test that the exclusion of 1-9 and 4-6 contains the interval 7-9', () => {
     expect((new Interval(1,9)).exclusion(new Interval(4,6))).toContainEqual(new Interval(7,9));
  }
 );
+
+describe('Test for error on unexpected types', function () {
+   
+    let ext_values =  [
+        [new Interval('b','a'), new Interval('c','d'),false,""],
+        [new Interval(true,false), new Interval(false,true),false,""],
+        [new Interval(null,null), new Interval(null,null),false,""],
+        [new Interval(undefined,undefined), new Interval(undefined,undefined),false,""],
+        [new Interval({},{}), new Interval({},{}),false,""],
+    ]
+    test.each(ext_values)(
+        'test overlaps throws error with intervals %p and %p',
+        (x,y,expected ) => {
+            expect(() => {x.overlaps(y)}).toThrowError(TypeError);
+        }
+    );
+
+    test.each(ext_values)(
+        'test includes throws error with intervals %p and %p',
+        (x,y,expected ) => {
+            expect(() => {x.includes(y)}).toThrowError(TypeError);
+        }
+    );
+
+    test.each(ext_values)(
+        'test overlaps throws error with intervals %p and %p',
+        (x,y,expected ) => {
+            expect(() => {x.union(y)}).toThrowError(TypeError);
+        }
+    );
+
+    test.each(ext_values)(
+        'test overlaps throws error with intervals %p and %p',
+        (x,y,expected ) => {
+            expect(() => {x.intersection(y)}).toThrowError(TypeError);
+        }
+    );
+
+    test.each(ext_values)(
+        'test exclusion throws error with intervals %p and %p',
+        (x,y,expected ) => {
+            expect(() => {x.exclusion(y)}).toThrowError(TypeError);
+        }
+    );
+});
 
