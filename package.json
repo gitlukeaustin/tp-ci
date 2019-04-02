@@ -37,7 +37,6 @@
     "@stryker-mutator/javascript-mutator": "^1.1.1",
     "@stryker-mutator/jest-runner": "^1.1.1",
     "@stryker-mutator/typescript": "^1.1.1",
-    "@stryker-mutator/grunt-stryker": "^1.0.0",
     "@stryker-mutator/jasmine-framework": "^1.1.1",
     "@stryker-mutator/jasmine-runner": "^1.1.1",
     "@stryker-mutator/karma-runner": "^1.1.1",
