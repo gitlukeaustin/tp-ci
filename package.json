@@ -13,16 +13,16 @@
     "type": "git",
     "url": "git+https://github.com/Kirouane/test-tp.git"
   },
-  "jest":{
-	  "verbose":true,
-	  "coverageThreshold":{
-		  "global":{
-			  "branches":100,
-			  "functions":100,
-			  "lines":100,
-			  "statements":100
-		  }
-	  }
+  "jest": {
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +31,28 @@
   },
   "homepage": "https://github.com/Kirouane/test-tp#readme",
   "devDependencies": {
-    "jest": "^24.1.0"
+    "@stryker-mutator/babel-transpiler": "^1.1.1",
+    "@stryker-mutator/core": "^1.1.1",
+    "@stryker-mutator/html-reporter": "^1.1.1",
+    "@stryker-mutator/javascript-mutator": "^1.1.1",
+    "@stryker-mutator/jest-runner": "^1.1.1",
+    "@stryker-mutator/typescript": "^1.1.1",
+    "grunt-stryker": "^0.13.17",
+    "jest": "^24.1.0",
+    "stryker": "^0.35.1",
+    "stryker-api": "^0.24.1",
+    "stryker-babel-transpiler": "^0.10.1",
+    "stryker-html-reporter": "^0.18.1",
+    "stryker-jasmine": "^0.12.1",
+    "stryker-jasmine-runner": "^0.4.1",
+    "stryker-javascript-mutator": "^0.14.1",
+    "stryker-jest-runner": "^1.4.1",
+    "stryker-karma-runner": "^0.24.1",
+    "stryker-mocha-framework": "^0.15.1",
+    "stryker-mocha-runner": "^0.17.1",
+    "stryker-typescript": "^0.18.1",
+    "stryker-vue-mutator": "^0.4.1",
+    "stryker-wct-runner": "^0.3.1",
+    "stryker-webpack-transpiler": "^0.9.1"
   }
 }
