@@ -37,22 +37,19 @@
     "@stryker-mutator/javascript-mutator": "^1.1.1",
     "@stryker-mutator/jest-runner": "^1.1.1",
     "@stryker-mutator/typescript": "^1.1.1",
-    "grunt-stryker": "^0.13.17",
+    "@stryker-mutator/grunt-stryker": "^1.0.0",
+    "@stryker-mutator/jasmine-framework": "^1.1.1",
+    "@stryker-mutator/jasmine-runner": "^1.1.1",
+    "@stryker-mutator/karma-runner": "^1.1.1",
     "jest": "^24.1.0",
-    "stryker": "^0.35.1",
-    "stryker-api": "^0.24.1",
-    "stryker-babel-transpiler": "^0.10.1",
-    "stryker-html-reporter": "^0.18.1",
-    "stryker-jasmine": "^0.12.1",
-    "stryker-jasmine-runner": "^0.4.1",
-    "stryker-javascript-mutator": "^0.14.1",
-    "stryker-jest-runner": "^1.4.1",
-    "stryker-karma-runner": "^0.24.1",
-    "stryker-mocha-framework": "^0.15.1",
-    "stryker-mocha-runner": "^0.17.1",
-    "stryker-typescript": "^0.18.1",
-    "stryker-vue-mutator": "^0.4.1",
-    "stryker-wct-runner": "^0.3.1",
-    "stryker-webpack-transpiler": "^0.9.1"
+    "@stryker-mutator/mocha-framework": "^1.1.1",
+    "@stryker-mutator/mocha-runner": "^1.1.1",
+    "@stryker-mutator/vue-mutator": "^1.1.1",
+    "@stryker-mutator/wct-runner": "^1.1.1",
+    "@stryker-mutator/webpack-transpiler": "^1.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lowdb": "^1.0.0"
   }
 }

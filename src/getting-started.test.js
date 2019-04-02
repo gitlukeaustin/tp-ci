@@ -52,10 +52,6 @@
   });
 
   const shoppingList = [
-    'diapers',
-    'kleenex',
-    'trash bags',
-    'paper towels',
     'beer',
   ];
   
@@ -69,16 +65,16 @@
   }
   ConfigError.prototype = Object.create(Error.prototype);*/
 
-  class ConfigError extends Error {};
-  function compileAndroidCode() {
-    throw new ConfigError('you are using the wrong JDK');
-  }
-  
-  test('compiling android goes as expected', () => {
-    expect(compileAndroidCode).toThrow();
-    expect(compileAndroidCode).toThrow(ConfigError);
-  
-    // You can also use the exact error message or a regexp
-    expect(compileAndroidCode).toThrow('you are using the wrong JDK');
-    expect(compileAndroidCode).toThrow(/JDK/);
-  });
+ class ConfigError extends Error {};
+ function compileAndroidCode() {
+   throw new ConfigError('you are using the wrong JDK');
+ }
+ 
+ test('compiling android goes as expected', () => {
+   expect(compileAndroidCode).toThrow();
+   expect(compileAndroidCode).toThrow(ConfigError);
+ 
+   // You can also use the exact error message or a regexp
+   expect(compileAndroidCode).toThrow('you are using the wrong JDK');
+   expect(compileAndroidCode).toThrow(/JDK/);
+ });
